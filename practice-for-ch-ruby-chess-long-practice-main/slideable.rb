@@ -4,18 +4,19 @@ module Slideable
     attr_reader :HORIZONTAL_DIRS, :DIAGONAL_DIRS
 
     def move_dirs
-    
-        # [1,0] if rook
-        # [0,1] if bishop
-
-        # [1,1] if queen        
+        # return [1,0] if rook
+        # return [0,1] if bishop
+        # return [1,1] if queen        
     end 
-    def moves 
-       valid_directions=  []
-       valid_moves = []
 
-       valid_directions += HORIZONTAL_DIRS  if move_dirs[0] = 1
-       valid_directions += DIAGONAL_DIRS if move_dirs[1] = 1 
+    def moves 
+        valid_directions = []
+        valid_moves = []
+
+        move_directions = move_dirs
+
+        valid_directions += HORIZONTAL_DIRS  if move_directions[0] == 1
+        valid_directions += DIAGONAL_DIRS if move_directions[1] == 1 
 
         valid_directions.each do |direction|
             dx, dy = direction
@@ -30,15 +31,15 @@ module Slideable
         start_row += dx
         start_column += dy
 
-        while board[[start_row,start_column]] != nil
+        while board[[start_row,start_column]] == nil && board.valid_pos?([start_row, start_column])
             valid_moves << [start_row,start_column] 
             start_row += dx
             start_column += dy
         end 
         
-        # if !board[[start_row,start_column]] && board[[start_row,start_column]].color != self.color
-        #     valid_moves << [start_row,start_column]
-        # end 
+        if board.valid_pos?([start_row, start_column]) && board[[start_row,start_column]].color != self.color
+            valid_moves << [start_row,start_column]
+        end 
         return valid_moves
     end 
 end 

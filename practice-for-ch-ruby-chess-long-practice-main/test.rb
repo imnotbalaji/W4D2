@@ -2,12 +2,28 @@ require_relative "board.rb"
 require_relative "piece.rb"
 require_relative "rook.rb"
 require_relative "slideable.rb"
+require_relative "bishop.rb"
+require_relative "queen.rb"
+require_relative "knight.rb"
+require_relative "king.rb"
 
 b = Board.new 
 
+# test slideable 
 rook = Rook.new(:W, b, [2,4]) 
+# p rook.moves # works
 
+bishop = Bishop.new(:W, b, [2,2])
+# p bishop.moves # works
 
-# p rook.HORIZONTAL_DIRS
+queen = Queen.new(:W, b, [2,3])
+#p queen.moves
+# slideable works
 
-p rook.moves
+# test stepable
+knight = Knight.new(:W, b, [2,3])
+p knight.moves
+# p knight works 
+
+king = King.new(:W,b,[2,4])
+p king.moves
