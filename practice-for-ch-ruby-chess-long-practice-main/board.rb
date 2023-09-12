@@ -6,13 +6,13 @@ class Board
 
         (0..1).each do |row|
             (0..7).each do |col|
-                @rows[row][col] = Piece.new
+                @rows[row][col] = Piece.new(:W, self,[row,col])
             end
         end
 
         (-2..-1).each do |row|
             (0..7).each do |col|
-                @rows[row][col] = Piece.new
+                @rows[row][col] = Piece.new(:B, self,[row,col])
             end
         end
     end

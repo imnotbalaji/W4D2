@@ -8,17 +8,32 @@ class Manager < Employee
     end 
     
     def bonus(multiplier)
-      
-        total = 0
-        employees.each do |emp|
-            if emp.is_a?(Manager)
-                total += emp.bonus(1)
-                total += emp.salary
-            else
-                total += emp.salary
-            end
-        end
-        total * multiplier
+
+
+        #recursive case 
+        employee_salary = employees.inject(0) { |sum, employee| sum + employee.salary }
+        employee_bonus = employees.inject(0)  do |sum, employee| 
+            if employee.is_a?(Manager)
+                 sum + employee.bonus(1)
+            else 
+                0
+            end  
+
+        end 
+
+
+        return employee_salary * multiplier + employee_bonus * multiplier
+
+    #     total = 0
+    #     employees.each do |emp|
+    #         if emp.is_a?(Manager)
+    #             total += emp.bonus(1)
+    #             total += emp.salary
+    #         else
+    #             total += emp.salary
+    #         end
+    #     end
+    #     total * multiplier
 
     end 
 
