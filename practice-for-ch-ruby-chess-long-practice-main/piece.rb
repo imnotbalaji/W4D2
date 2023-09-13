@@ -27,7 +27,11 @@ class Piece
         # debugger
         board.rows.each.with_index do |row,row_index|
             row.each.with_index do |piece,col_index|
-                b_copy[[row_index,col_index]] = Piece.new(color,b_copy,pos)
+                if piece != NullPiece.instance
+                    b_copy[[row_index,col_index]] = (piece.class).new(color,b_copy,pos)
+                else
+                    b_copy[[row_index,col_index]] = NullPiece.instance
+                end
             end 
         end 
         return b_copy

@@ -47,7 +47,7 @@ class Board
         if !valid_pos?(end_pos)
             raise RuntimeError.new("There is position at #{end_pos}")
         end
-        debugger
+        #debugger
         self[end_pos] = self[start_pos]
         self[start_pos] = NullPiece.instance
         self[end_pos].pos = end_pos
