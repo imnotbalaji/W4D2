@@ -12,7 +12,7 @@ module Stepable
             start_col += dy
 
             if board.valid_pos?([start_row, start_col])
-                if board[[start_row, start_col]] == nil || board[[start_row, start_col]].color != self.color
+                if board[[start_row, start_col]] == NullPiece.instance || board[[start_row, start_col]].color != self.color
                     valid_moves << [start_row, start_col]
                 end
             end

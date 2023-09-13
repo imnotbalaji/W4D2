@@ -33,7 +33,7 @@ module Slideable
         start_row += dx
         start_column += dy
 
-        while board[[start_row,start_column]] == nil && board.valid_pos?([start_row, start_column])
+        while board[[start_row,start_column]] == NullPiece.instance && board.valid_pos?([start_row, start_column])
             valid_moves << [start_row,start_column] 
             start_row += dx
             start_column += dy
