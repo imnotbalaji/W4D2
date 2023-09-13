@@ -1,11 +1,11 @@
 require "byebug"
 module Slideable
     HORIZONTAL_DIRS = [[0,1], [1,0], [0,-1],[-1,0]]
-    DIAGONAL_DIRS = [[1,1],[1,-1],[-1,1],[-1,1]]
+    DIAGONAL_DIRS = [[1,1],[1,-1],[-1,1],[-1,-1]]
     attr_reader :HORIZONTAL_DIRS, :DIAGONAL_DIRS
 
     def moves 
-        debugger
+        #debugger
         valid_directions = []
         valid_moves = []
 
@@ -30,7 +30,7 @@ module Slideable
     end 
 
     def grow_unblocked_moves_in_dir(dx,dy)
-    
+        #debugger
         start_row, start_column = pos 
         valid_moves = []
         start_row += dx

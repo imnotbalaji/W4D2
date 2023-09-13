@@ -53,7 +53,7 @@ b.move_piece([6,5],[5,5])
 b.move_piece([1,4],[2,4])
 b.move_piece([7,4],[4,7])
 
-d.render
+# d.render
 
 p b[[4,7]].moves
 p b[[4,7]].class
