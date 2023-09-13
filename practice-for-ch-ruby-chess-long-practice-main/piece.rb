@@ -24,7 +24,6 @@ class Piece
     def deep_copy
         ## Create a copy of the board
         b_copy = Board.new
-        # debugger
         board.rows.each.with_index do |row,row_index|
             row.each.with_index do |piece,col_index|
                 if piece != NullPiece.instance
@@ -41,15 +40,18 @@ class Piece
         b_copy = deep_copy
         b_copy.move_piece(pos,end_pos)
         if b_copy.in_check(color)
+            debugger
             return true 
         else 
+            debugger
             return false
         end 
     end 
 
     def valid_moves
         valid_moves = []
-        moves.each do |move|
+        all_moves = moves
+        all_moves.each do |move|
             valid_moves << move if !move_into_check?(move)
         end 
         return valid_moves

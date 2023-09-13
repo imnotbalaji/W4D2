@@ -62,7 +62,6 @@ d.render
 
 # p b[[4,7]].moves
 # p b[[4,7]].class
-
 p b.in_check(:W)
 p b.checkmate?(:W)
 # p b.in_check(:B)

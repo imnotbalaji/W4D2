@@ -61,10 +61,11 @@ class Board
 
     def in_check(color)
         # find the position of the king of this color on the board ("white")
-        king_position = []
+        king_position = nil
         rows.each do |row|
             row.each do |piece|
-                king_position = piece.pos if piece.color == color && piece.class == King 
+                debugger
+                king_position = piece.pos if piece.class == King && piece.color == color 
             end          
         end 
         rows.each do |row|
