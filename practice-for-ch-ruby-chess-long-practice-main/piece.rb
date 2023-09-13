@@ -5,10 +5,20 @@ class Piece
         @pos = position
     end 
 
-   
+    def to_s 
+        self.class.to_s[0..3]
+    end
+
+    def empty?
+        self.class == NullPiece
+    end
+
+    def pos=(val)
+        @pos = val
+    end
 
     def inspect 
-        "#{color}"
+        "#{to_s}"
     end
 
     attr_accessor :color, :pos, :board
