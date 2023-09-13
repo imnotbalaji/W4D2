@@ -46,17 +46,26 @@ d = Display.new(b)
 # end
 # result
 
-p b.in_check(:W)
-p b.in_check(:B)
+# p b.in_check(:W)
+# p b.in_check(:B)
 
-b.move_piece([6,5],[5,5])
-b.move_piece([1,4],[2,4])
-b.move_piece([7,4],[4,7])
-
+b.move_piece([1,1],[1,3]) # white move 1 
 # d.render
 
-p b[[4,7]].moves
-p b[[4,7]].class
+# b.move_piece([6,3],[4,3]) # black move 1 
+# b.move_piece([1,2],[2,2]) # white move 2
+d.render
+
+
+# b.move_piece([7,4],[3,0])  # black_move 2
+# b.move_piece([1,4],[2,4])
+# b.move_piece([7,4],[4,7])
+
+#  d.render
+
+# p b[[4,7]].moves
+# p b[[4,7]].class
 
 p b.in_check(:W)
-p b.in_check(:B)
+p b.checkmate?(:W)
+# p b.in_check(:B)

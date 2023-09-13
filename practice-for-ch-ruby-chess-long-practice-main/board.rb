@@ -47,7 +47,7 @@ class Board
         if !valid_pos?(end_pos)
             raise RuntimeError.new("There is position at #{end_pos}")
         end
-
+        debugger
         self[end_pos] = self[start_pos]
         self[start_pos] = NullPiece.instance
         self[end_pos].pos = end_pos
@@ -85,7 +85,7 @@ class Board
             rows.each do |row|
                 row.each do |piece|
                     if piece.color == color
-                        if piece.valid_moves
+                        if piece.valid_moves.length != 0
                             return false
                         end
                     end
