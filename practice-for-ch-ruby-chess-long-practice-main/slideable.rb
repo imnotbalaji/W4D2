@@ -3,12 +3,6 @@ module Slideable
     DIAGONAL_DIRS = [[1,1],[1,-1],[-1,1],[-1,1]]
     attr_reader :HORIZONTAL_DIRS, :DIAGONAL_DIRS
 
-    def move_dirs
-        # return [1,0] if rook
-        # return [0,1] if bishop
-        # return [1,1] if queen        
-    end 
-
     def moves 
         valid_directions = []
         valid_moves = []
@@ -23,6 +17,14 @@ module Slideable
             valid_moves += grow_unblocked_moves_in_dir(dx,dy)
         end 
         return valid_moves
+    end 
+
+    private
+
+    def move_dirs
+        # return [1,0] if rook
+        # return [0,1] if bishop
+        # return [1,1] if queen        
     end 
 
     def grow_unblocked_moves_in_dir(dx,dy)
