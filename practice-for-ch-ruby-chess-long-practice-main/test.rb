@@ -7,6 +7,7 @@ require_relative "queen.rb"
 require_relative "knight.rb"
 require_relative "king.rb"
 require_relative "pawn.rb"
+require_relative "display.rb"
 
 b = Board.new 
 
@@ -34,3 +35,28 @@ b = Board.new
 # pawn = Pawn.new(:B,b, position_1 )
 
 # p pawn.moves
+
+d = Display.new(b)
+
+# result = nil
+# until result
+
+#     d.render
+#     result = d.cursor.get_input
+# end
+# result
+
+p b.in_check(:W)
+p b.in_check(:B)
+
+b.move_piece([6,5],[5,5])
+b.move_piece([1,4],[2,4])
+b.move_piece([7,4],[4,7])
+
+d.render
+
+p b[[4,7]].moves
+p b[[4,7]].class
+
+p b.in_check(:W)
+p b.in_check(:B)

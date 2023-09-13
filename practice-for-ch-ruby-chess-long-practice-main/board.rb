@@ -58,7 +58,28 @@ class Board
         
     end
 
-    private
+    def in_check(color)
+        # find the position of the king of this color on the board ("white")
+        king_position = []
+        rows.each do |row|
+            row.each do |piece|
+                king_position = piece.pos if piece.color == color && piece.class == King 
+            end          
+        end 
+        rows.each do |row|
+            row.each do |piece|
+                if piece.class != NullPiece && piece.color != color
+                    piece_moves = piece.moves
+                    if piece_moves.include?(king_position) 
+                        return true 
+                    end
+                end 
+            end 
+        end 
+        return false
+    end 
+
+    
     attr_reader :rows
 
 

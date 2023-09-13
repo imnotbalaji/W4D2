@@ -6,7 +6,7 @@ class Piece
     end 
 
     def to_s 
-        self.class.to_s[0..3]
+        self.class.to_s[0..2]
     end
 
     def empty?

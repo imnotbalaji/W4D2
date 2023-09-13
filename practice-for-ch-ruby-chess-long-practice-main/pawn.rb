@@ -67,6 +67,6 @@ class Pawn < Piece
             end 
         end 
         valid_moves
-        end 
+    end 
        
 end
