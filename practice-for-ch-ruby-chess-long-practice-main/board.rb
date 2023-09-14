@@ -64,7 +64,6 @@ class Board
         king_position = nil
         rows.each do |row|
             row.each do |piece|
-                debugger
                 king_position = piece.pos if piece.class == King && piece.color == color 
             end          
         end 
@@ -72,6 +71,7 @@ class Board
             row.each do |piece|
                 if piece.class != NullPiece && piece.color != color
                     piece_moves = piece.moves
+                    #debugger
                     if piece_moves.include?(king_position) 
                         return true 
                     end
@@ -92,7 +92,7 @@ class Board
                     end
                 end
             end
-            true
+            return true
         end
         false
     end

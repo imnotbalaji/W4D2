@@ -27,7 +27,7 @@ class Piece
         board.rows.each.with_index do |row,row_index|
             row.each.with_index do |piece,col_index|
                 if piece != NullPiece.instance
-                    b_copy[[row_index,col_index]] = (piece.class).new(color,b_copy,pos)
+                    b_copy[[row_index,col_index]] = (piece.class).new(piece.color,b_copy,piece.pos)
                 else
                     b_copy[[row_index,col_index]] = NullPiece.instance
                 end
@@ -40,10 +40,10 @@ class Piece
         b_copy = deep_copy
         b_copy.move_piece(pos,end_pos)
         if b_copy.in_check(color)
-            debugger
+            #debugger
             return true 
         else 
-            debugger
+            #debugger
             return false
         end 
     end 
@@ -52,6 +52,7 @@ class Piece
         valid_moves = []
         all_moves = moves
         all_moves.each do |move|
+            #debugger
             valid_moves << move if !move_into_check?(move)
         end 
         return valid_moves
